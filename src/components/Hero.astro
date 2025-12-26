@@ -1,0 +1,138 @@
+<section id="inicio" class="hero">
+	<div class="glow-bg"></div>
+	<div class="container">
+		<div class="content">
+			<span class="badge">Seguridad Privada & Corporativa</span>
+			<h1>
+				Protección Absoluta <br />
+				<span class="text-gradient">Sin Compromisos</span>
+			</h1>
+			<p>
+				Elevamos el estándar de seguridad con soluciones estratégicas,
+				tecnología de punta y personal de élite. Su tranquilidad es
+				nuestra única misión.
+			</p>
+			<div class="actions">
+				<a href="#contacto" class="btn-primary">Solicitar Auditoría</a>
+				<a href="#servicios" class="btn-secondary">Nuestros Servicios</a
+				>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.hero {
+		position: relative;
+		height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		padding-top: 80px; /* Offset for navbar */
+	}
+
+	.glow-bg {
+		position: absolute;
+		width: 600px;
+		height: 600px;
+		background: radial-gradient(
+			circle,
+			var(--color-primary-subtle) 0%,
+			rgba(0, 0, 0, 0) 70%
+		);
+		top: -100px;
+		right: -100px;
+		z-index: -1;
+		pointer-events: none;
+	}
+
+	.container {
+		max-width: 1200px;
+		padding: 0 1.5rem;
+		width: 100%;
+	}
+
+	.content {
+		max-width: 800px;
+	}
+
+	.badge {
+		display: inline-block;
+		padding: 0.5rem 1rem;
+		border: 1px solid rgba(200, 155, 25, 0.3);
+		border-radius: 50px;
+		color: var(--color-primary);
+		font-size: 0.875rem;
+		font-weight: 600;
+		margin-bottom: 1.5rem;
+		background: rgba(200, 155, 25, 0.05);
+	}
+
+	h1 {
+		font-size: 4rem;
+		margin-bottom: 1.5rem;
+		letter-spacing: -1px;
+	}
+
+	p {
+		font-size: 1.25rem;
+		margin-bottom: 2.5rem;
+		max-width: 600px;
+	}
+
+	.actions {
+		display: flex;
+		gap: 1rem;
+	}
+
+	.btn-primary {
+		background: var(--color-primary);
+		color: #000;
+		padding: 1rem 2rem;
+		border-radius: 4px;
+		text-decoration: none;
+		font-weight: 700;
+		font-size: 1rem;
+		transition: all 0.3s ease;
+	}
+
+	.btn-primary:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 4px 20px rgba(200, 155, 25, 0.4);
+	}
+
+	.btn-secondary {
+		background: transparent;
+		color: var(--color-text);
+		border: 1px solid var(--color-border);
+		padding: 1rem 2rem;
+		border-radius: 4px;
+		text-decoration: none;
+		font-weight: 600;
+		font-size: 1rem;
+		transition: all 0.3s ease;
+	}
+
+	.btn-secondary:hover {
+		border-color: var(--color-support);
+		color: var(--color-support);
+		background: rgba(192, 192, 192, 0.05);
+	}
+
+	@media (max-width: 768px) {
+		h1 {
+			font-size: 2.5rem;
+		}
+
+		.actions {
+			flex-direction: column;
+		}
+
+		.btn-primary,
+		.btn-secondary {
+			width: 100%;
+			text-align: center;
+		}
+	}
+</style>

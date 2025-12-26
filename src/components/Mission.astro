@@ -1,0 +1,146 @@
+---
+const stats = [
+    { number: "15+", label: "Años de Experiencia" },
+    { number: "500+", label: "Agentes Certificados" },
+    { number: "24/7", label: "Centro de Control" },
+    { number: "98%", label: "Tasa de Retención" },
+];
+---
+
+<section class="mission">
+    <div class="container">
+        <div class="content-wrapper">
+            <div class="text-content">
+                <span class="badge">Nuestra Filosofía</span>
+                <h2>
+                    Más que Seguridad, <br /><span class="text-gradient"
+                        >Tranquilidad Mental</span>
+                </h2>
+                <p class="mission-text">
+                    En un mundo impredecible, nuestra misión es ser la constante
+                    en la que puede confiar. No solo protegemos activos;
+                    custodiamos el futuro de su empresa y la integridad de su
+                    familia. Combinamos disciplina militar con tecnología civil
+                    de vanguardia.
+                </p>
+                <p class="mission-subtext">
+                    "La anticipación es la mejor forma de protección. No
+                    reaccionamos a las amenazas, las neutralizamos antes de que
+                    ocurran."
+                </p>
+            </div>
+
+            <div class="stats-grid">
+                {
+                    stats.map((stat) => (
+                        <div class="stat-card">
+                            <span class="stat-number">{stat.number}</span>
+                            <span class="stat-label">{stat.label}</span>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .mission {
+        padding: 8rem 0;
+        background: linear-gradient(to right, #0a0a0a, #000000);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+    }
+
+    .content-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+        align-items: center;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border: 1px solid rgba(200, 155, 25, 0.3);
+        border-radius: 50px;
+        color: var(--color-primary);
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        background: rgba(200, 155, 25, 0.05);
+    }
+
+    h2 {
+        font-size: 3.5rem;
+        line-height: 1.1;
+        margin-bottom: 2rem;
+    }
+
+    .mission-text {
+        font-size: 1.125rem;
+        color: var(--color-text-muted);
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+    }
+
+    .mission-subtext {
+        font-size: 1.125rem;
+        color: var(--color-text);
+        font-style: italic;
+        border-left: 3px solid var(--color-primary);
+        padding-left: 1.5rem;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .stat-card {
+        background: rgba(255, 255, 255, 0.03);
+        padding: 2rem;
+        border-radius: 12px;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+    }
+
+    .stat-card:hover {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(200, 155, 25, 0.2);
+        transform: translateY(-5px);
+    }
+
+    .stat-number {
+        display: block;
+        font-size: 3rem;
+        font-weight: 800;
+        color: var(--color-primary);
+        margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+        color: var(--color-text-muted);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    @media (max-width: 968px) {
+        .content-wrapper {
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+        }
+    }
+</style>

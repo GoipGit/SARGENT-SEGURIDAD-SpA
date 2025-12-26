@@ -1,0 +1,252 @@
+<section id="contacto" class="contact">
+    <div class="container">
+        <div class="wrapper">
+            <div class="contact-info">
+                <span class="badge">Contáctanos</span>
+                <h2>
+                    Hablemos de <br /><span class="text-gradient"
+                        >Su Seguridad</span
+                    >
+                </h2>
+                <p>
+                    Estamos listos para diseñar una estrategia de protección a
+                    su medida. Complete el formulario o visítenos en nuestras
+                    oficinas centrales.
+                </p>
+
+                <div class="info-items">
+                    <div class="item">
+                        <span class="icon">📍</span>
+                        <div class="details">
+                            <strong>Oficina Central</strong>
+                            <span>Av. Providencia 1234, Santiago, Chile</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span class="icon">📧</span>
+                        <div class="details">
+                            <strong>Email</strong>
+                            <span>contacto@securitycentral.cl</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span class="icon">📞</span>
+                        <div class="details">
+                            <strong>Teléfono 24/7</strong>
+                            <span>+56 2 2333 4444</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nombre Completo</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Ej: Juan Pérez"
+                        required
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="nombre@empresa.com"
+                        required
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Mensaje</label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="4"
+                        placeholder="¿En qué podemos ayudarle?"
+                        required></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary">Enviar Mensaje</button
+                >
+            </form>
+        </div>
+    </div>
+</section>
+
+<style>
+    .contact {
+        padding: 6rem 0;
+        background: var(--color-bg);
+        position: relative;
+    }
+
+    /* Optional: Background decoration */
+    .contact::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(
+            circle,
+            rgba(200, 155, 25, 0.05) 0%,
+            transparent 70%
+        );
+        transform: translateY(-50%);
+        pointer-events: none;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+    }
+
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+        align-items: center;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border: 1px solid var(--color-primary-border);
+        border-radius: 50px;
+        color: var(--color-primary);
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        background: var(--color-primary-subtle);
+    }
+
+    h2 {
+        font-size: 3rem;
+        line-height: 1.1;
+        margin-bottom: 2rem;
+    }
+
+    .contact-info p {
+        color: var(--color-text-muted);
+        font-size: 1.125rem;
+        margin-bottom: 3rem;
+        line-height: 1.6;
+        max-width: 450px;
+    }
+
+    .info-items {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .icon {
+        font-size: 1.5rem;
+    }
+
+    .details {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .details strong {
+        color: var(--color-text);
+        font-size: 1.1rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .details span {
+        color: var(--color-text-muted);
+    }
+
+    /* Form Styles */
+    .contact-form {
+        background: var(--color-surface-1);
+        padding: 3rem;
+        border-radius: 12px;
+        border: 1px solid var(--color-border);
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    label {
+        color: var(--color-text);
+        font-weight: 500;
+        font-size: 0.9rem;
+    }
+
+    input,
+    textarea {
+        background: var(--color-surface-3);
+        border: 1px solid var(--color-border);
+        padding: 1rem;
+        border-radius: 6px;
+        color: white;
+        font-family: inherit;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
+
+    input:focus,
+    textarea:focus {
+        outline: none;
+        border-color: var(--color-primary);
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    textarea {
+        resize: vertical;
+    }
+
+    .btn-primary {
+        background: var(--color-primary);
+        color: #000;
+        padding: 1rem;
+        border: none;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+        margin-top: 1rem;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(200, 155, 25, 0.3);
+    }
+
+    @media (max-width: 968px) {
+        .wrapper {
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        .contact-form {
+            padding: 2rem;
+        }
+    }
+</style>

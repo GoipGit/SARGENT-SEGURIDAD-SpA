@@ -1,0 +1,119 @@
+---
+const clients = [
+    "TechCorp Global",
+    "Financiera Horizonte",
+    "Grupo Constructor Alpha",
+    "Logística Express",
+    "Centro Médico Vital",
+    "Industrias Apex",
+    "Retail Solutions",
+    "Banca Privada Elite",
+];
+---
+
+<section class="clients">
+    <div class="container">
+        <p class="section-label">Confían en nosotros</p>
+
+        <div class="carousel-wrapper">
+            <div class="carousel-track">
+                <!-- Render double the items to create seamless loop illusion -->
+                {
+                    clients.map((client) => (
+                        <div class="client-logo">
+                            <span class="logo-text">{client}</span>
+                        </div>
+                    ))
+                }
+                {
+                    clients.map((client) => (
+                        <div class="client-logo">
+                            <span class="logo-text">{client}</span>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .clients {
+        padding: 4rem 0;
+        background: #000;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        overflow: hidden;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        text-align: center;
+    }
+
+    .section-label {
+        color: var(--color-text-muted);
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 2rem;
+        font-weight: 600;
+    }
+
+    .carousel-wrapper {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        mask-image: linear-gradient(
+            to right,
+            transparent,
+            black 20%,
+            black 80%,
+            transparent
+        );
+    }
+
+    .carousel-track {
+        display: flex;
+        gap: 4rem;
+        width: max-content;
+        animation: scroll 30s linear infinite;
+    }
+
+    .client-logo {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.5;
+        transition: opacity 0.3s ease;
+        cursor: default;
+    }
+
+    .client-logo:hover {
+        opacity: 1;
+    }
+
+    .logo-text {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #fff;
+        white-space: nowrap;
+        font-family: "Courier New", monospace; /* Tech/Security vibe */
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    /* Pause on hover if desired */
+    .carousel-wrapper:hover .carousel-track {
+        animation-play-state: paused;
+    }
+</style>

@@ -1,0 +1,108 @@
+---
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>SecurityCentral | Protección de Alto Nivel</title>
+		<!-- Google Fonts: Outfit -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<Navbar />
+		<slot />
+		<Footer />
+	</body>
+
+	<style is:global>
+		:root {
+			/* Primary Scale (Gold) */
+			--color-primary: #c89b19;
+			--color-primary-light: #e5b83b;
+			--color-primary-dark: #a37d12;
+
+			/* Primary Utilities */
+			--color-primary-subtle: rgba(200, 155, 25, 0.1);
+			--color-primary-border: rgba(200, 155, 25, 0.3);
+
+			/* Neutral Scale & Surfaces */
+			--color-bg: #050505; /* Rich Black */
+			--color-surface-1: #121212; /* Cards */
+			--color-surface-2: #1e1e1e; /* Hovers/Modals */
+			--color-surface-3: #2a2a2a; /* Inputs */
+			--color-border: #3e3e3e;
+
+			/* Accents */
+			--color-support: #c0c0c0; /* Silver - Support Elements */
+
+			/* Functional / Status */
+			--color-success: #10b981;
+			--color-warning: #f59e0b;
+			--color-error: #ef4444;
+
+			/* Typography */
+			--color-text: #ffffff;
+			--color-text-muted: #a1a1aa;
+			--color-text-dim: #6b7280;
+
+			/* Typography Settings */
+			--font-main: "Outfit", sans-serif;
+		}
+
+		html {
+			font-family: var(--font-main);
+			background: var(--color-bg);
+			color: var(--color-text);
+			scroll-behavior: smooth;
+		}
+
+		body {
+			margin: 0;
+			width: 100%;
+			min-height: 100vh;
+			overflow-x: hidden;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			margin: 0;
+			font-weight: 700;
+			line-height: 1.1;
+		}
+
+		p {
+			line-height: 1.6;
+			color: var(--color-text-muted);
+		}
+
+		/* Utility to remove scrollbar but keep functionality if needed, 
+	   or just standard reset */
+		*,
+		*::before,
+		*::after {
+			box-sizing: border-box;
+		}
+
+		.text-gradient {
+			background: linear-gradient(45deg, var(--color-primary), #f5d061);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+		}
+	</style>
+</html>

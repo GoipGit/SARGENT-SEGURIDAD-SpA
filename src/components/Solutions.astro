@@ -1,0 +1,236 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+
+const solutions = await getCollection("solutions");
+type Solution = CollectionEntry<"solutions">;
+---
+
+<section id="soluciones" class="solutions">
+    <div class="container">
+        <div class="header">
+            <span class="badge">Enfoque Integral</span>
+            <h2>
+                Seguridad a la medida de <br />
+                <span class="text-gradient">su entorno</span>
+            </h2>
+            <p>
+                Combinamos tecnología avanzada y personal experto para crear
+                ecosistemas de protección adaptados a cada necesidad.
+            </p>
+        </div>
+
+        <div class="solutions-grid">
+            {
+                solutions.map((solution: Solution) => (
+                    <article
+                        class={`solution-card ${solution.data.isFeatured ? "featured" : ""}`}
+                    >
+                        <div class="icon-wrapper">{solution.data.icon}</div>
+                        <h3>{solution.data.title}</h3>
+                        <p>{solution.data.description}</p>
+                        <ul class="features">
+                            {solution.data.features.map((feature: string) => (
+                                <li>{feature}</li>
+                            ))}
+                        </ul>
+                        <a href={solution.data.ctaLink} class="link-arrow">
+                            {solution.data.ctaText} →
+                        </a>
+                    </article>
+                ))
+            }
+        </div>
+
+        <div class="cta-section">
+            <h3>¿No está seguro de qué necesita?</h3>
+            <p>
+                Nuestros expertos realizan un levantamiento gratuito para
+                diseñar la solución perfecta.
+            </p>
+            <a href="/#contacto" class="btn-primary">Agendar Visita Técnica</a>
+        </div>
+    </div>
+</section>
+
+<style>
+    .solutions {
+        padding: 8rem 0;
+        background: var(--color-bg);
+        position: relative;
+    }
+
+    /* Center-out Separator */
+    .solutions::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 1200px;
+        height: 1px;
+        background: radial-gradient(
+            circle,
+            var(--color-primary) 0%,
+            transparent 70%
+        );
+        opacity: 0.3;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+    }
+
+    .header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 5rem;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border: 1px solid var(--color-primary-border);
+        background: var(--color-primary-subtle);
+        border-radius: 50px;
+        color: var(--color-primary);
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    h2 {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        letter-spacing: -0.5px;
+    }
+
+    .header p {
+        color: var(--color-text-muted);
+        font-size: 1.25rem;
+    }
+
+    .solutions-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+        margin-bottom: 5rem;
+    }
+
+    .solution-card {
+        background: var(--color-surface-1);
+        border: 1px solid var(--color-border);
+        padding: 2.5rem;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .solution-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--color-primary);
+    }
+
+    .solution-card.featured {
+        border-color: var(--color-primary-light);
+        background: linear-gradient(
+            to bottom right,
+            var(--color-surface-1),
+            rgba(200, 155, 25, 0.05)
+        );
+    }
+
+    .icon-wrapper {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        background: var(--color-surface-2);
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 16px;
+    }
+
+    h3 {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+        color: var(--color-text);
+    }
+
+    .solution-card p {
+        color: var(--color-text-muted);
+        margin-bottom: 2rem;
+    }
+
+    .features {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 2rem;
+    }
+
+    .features li {
+        margin-bottom: 0.75rem;
+        padding-left: 1.5rem;
+        position: relative;
+        color: var(--color-text-dim);
+    }
+
+    .features li::before {
+        content: "•";
+        color: var(--color-primary);
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+    }
+
+    .link-arrow {
+        color: var(--color-primary);
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: gap 0.2s;
+    }
+
+    .link-arrow:hover {
+        gap: 0.75rem;
+    }
+
+    .cta-section {
+        background: var(--color-surface-1);
+        border: 1px solid var(--color-border);
+        padding: 4rem 2rem;
+        border-radius: 24px;
+        text-align: center;
+    }
+
+    .cta-section h3 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .cta-section .btn-primary {
+        display: inline-block;
+        margin-top: 1rem;
+        background: var(--color-primary);
+        color: #000;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 700;
+    }
+
+    @media (max-width: 768px) {
+        h2 {
+            font-size: 2.5rem;
+        }
+        .solutions-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
