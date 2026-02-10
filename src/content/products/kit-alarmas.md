@@ -1,6 +1,5 @@
 ---
 title: "Kit Alarma Inalámbrica SmartHome Pro"
-price: 299990
 description: "Sistema de alarma integral de 8 zonas con conexión WiFi/GSM y control total desde app móvil."
 image: "/images/Kit Alarma Inalámbrica SmartHome Pro.png"
 category: "Alarmas"

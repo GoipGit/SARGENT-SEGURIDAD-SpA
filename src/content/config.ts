@@ -4,7 +4,6 @@ const products = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
-    price: z.number(),
     description: z.string(),
     image: z.string().optional(),
     category: z.enum(['Cámaras', 'Alarmas', 'Control de Acceso', 'Sensores']),
@@ -20,6 +19,7 @@ const services = defineCollection({
     title: z.string(),
     description: z.string(),
     icon: z.string(),
+    draft: z.boolean().default(false).optional(),
   }),
 });
 

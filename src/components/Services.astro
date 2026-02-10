@@ -2,7 +2,9 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import { BrushCleaning, ShieldCheck, Crown, Cctv, Shield } from "lucide-astro";
 
-const services = await getCollection("services");
+const services = await getCollection("services", ({ data }) => {
+    return !data.draft;
+});
 type Service = CollectionEntry<"services">;
 
 const iconMap: Record<string, any> = {

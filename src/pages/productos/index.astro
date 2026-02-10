@@ -52,15 +52,6 @@ type Product = CollectionEntry<"products">;
                                 )}
 
                                 <div class="footer">
-                                    <div class="price">
-                                        <span>Desde</span>
-                                        <strong>
-                                            $
-                                            {product.data.price.toLocaleString(
-                                                "es-CL",
-                                            )}
-                                        </strong>
-                                    </div>
                                     <a
                                         href={`/productos/${product.slug}`}
                                         class="btn-primary"

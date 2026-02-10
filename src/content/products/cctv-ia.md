@@ -1,6 +1,5 @@
 ---
 title: "Sistema de Monitoreo CCTV IA"
-price: 1200000
 description: "Vigilancia inteligente con detección de intrusos mediante Inteligencia Artificial."
 image: "/images/Sistema de Monitoreo CCTV IA.png"
 category: "Cámaras"

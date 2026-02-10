@@ -1,6 +1,5 @@
 ---
 title: "Cámara Bullet IP 4K Ultra Defiance"
-price: 149990
 description: "Vigilancia perimetral de ultra alta definición con visión nocturna a color y detección de movimiento AI."
 image: "/images/Cámara Bullet IP 4K Ultra Defiance.png"
 category: "Cámaras"

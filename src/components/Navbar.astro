@@ -14,9 +14,13 @@
 			</li>
 			<li><a href="/#servicios" data-astro-prefetch>Servicios</a></li>
 			<li><a href="/#soluciones" data-astro-prefetch>Soluciones</a></li>
+			<li class="nav-separator"></li>
 			<li>
-				<a href="/productos" class="highlight-link" data-astro-prefetch
-					>Productos</a
+				<a
+					href="/productos"
+					id="nav-products"
+					class="highlight-link"
+					data-astro-prefetch>Productos</a
 				>
 			</li>
 		</ul>
@@ -51,9 +55,65 @@
 
 		const brandLink = document.querySelector(".brand");
 		const homeLink = document.querySelector(".nav-link-home");
+		const navLinks = document.querySelectorAll(".nav-links a");
 
 		if (brandLink) brandLink.addEventListener("click", scrollToTop);
 		if (homeLink) homeLink.addEventListener("click", scrollToTop);
+
+		// Active State Logic (ScrollSpy)
+		const updateActiveState = () => {
+			const currentPath = window.location.pathname;
+
+			// Remove active class from all
+			navLinks.forEach((link) => link.classList.remove("active"));
+
+			if (currentPath.startsWith("/productos")) {
+				const productsLink = document.getElementById("nav-products");
+				if (productsLink) productsLink.classList.add("active");
+				return;
+			}
+
+			if (currentPath === "/") {
+				const sections = ["inicio", "servicios", "soluciones"];
+				let currentSection = "";
+
+				// Determine which section is currently in view
+				for (const section of sections) {
+					const element = document.getElementById(section);
+					if (element) {
+						const rect = element.getBoundingClientRect();
+						// Check if section is active (simple heuristic)
+						if (rect.top <= 150 && rect.bottom >= 150) {
+							currentSection = section;
+							break;
+						}
+					}
+				}
+
+				// Fallback to home if near top
+				if (!currentSection && window.scrollY < 100) {
+					currentSection = "inicio";
+				}
+
+				if (currentSection) {
+					navLinks.forEach((link) => {
+						const href = link.getAttribute("href");
+						if (
+							href === `/#${currentSection}` ||
+							(currentSection === "inicio" && href === "/")
+						) {
+							link.classList.add("active");
+						}
+					});
+				}
+			}
+		};
+
+		// Run on load and scroll
+		updateActiveState();
+		document.addEventListener("scroll", updateActiveState, {
+			passive: true,
+		});
 	});
 </script>
 
@@ -93,17 +153,62 @@
 		list-style: none;
 		margin: 0;
 		padding: 0;
+		align-items: center; /* Ensure items align vertically */
+	}
+
+	.nav-separator {
+		width: 1px;
+		height: 24px;
+		background-color: var(--color-border);
+		margin: 0 0.5rem; /* Adjust spacing around separator */
+		opacity: 0.5;
 	}
 
 	.nav-links a {
 		color: var(--color-text-muted);
 		text-decoration: none;
 		font-weight: 400;
+		position: relative;
 		transition: color 0.3s ease;
 	}
 
-	.nav-links a:hover {
+	.nav-links a:not(.highlight-link):hover,
+	.nav-links a.active:not(.highlight-link) {
 		color: var(--color-primary);
+	}
+
+	/* Active indicator (underline glow) for standard links */
+	.nav-links a.active:not(.highlight-link)::after {
+		content: "";
+		position: absolute;
+		bottom: -4px;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		background: var(--color-primary);
+		box-shadow: 0 0 8px var(--color-primary);
+		opacity: 1;
+		transform: scaleX(1);
+		transition: transform 0.3s ease;
+	}
+
+	/* Hover indicator for standard links (optional, if you want it on hover too) */
+	.nav-links a:not(.highlight-link)::after {
+		content: "";
+		position: absolute;
+		bottom: -4px;
+		left: 0;
+		width: 0;
+		height: 2px;
+		background: var(--color-primary);
+		box-shadow: 0 0 8px var(--color-primary);
+		opacity: 0;
+		transition: all 0.3s ease;
+	}
+
+	.nav-links a:not(.highlight-link):hover::after {
+		width: 100%;
+		opacity: 0.5;
 	}
 
 	.nav-links a.highlight-link {
@@ -115,7 +220,8 @@
 		transition: all 0.3s ease;
 	}
 
-	.nav-links a.highlight-link:hover {
+	.nav-links a.highlight-link:hover,
+	.nav-links a.highlight-link.active {
 		background: var(--color-primary);
 		color: #000;
 		border-color: var(--color-primary);
