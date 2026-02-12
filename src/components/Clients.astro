@@ -1,13 +1,5 @@
 ---
 const clients = [
-    /*{ name: "TechCorp Global" },
-    { name: "Financiera Horizonte" },
-    { name: "Grupo Constructor Alpha" },
-    { name: "Logística Express" },
-    { name: "Centro Médico Vital" },
-    { name: "Industrias Apex" },
-    { name: "Retail Solutions" },
-    { name: "Banca Privada Elite" }, */
     { name: "Ignis Nova", logo: "/images/clientes/ignisNova.png" },
     { name: "Emasa", logo: "/images/clientes/emasa.png" },
     { name: "Abasto Super", logo: "/images/clientes/abasto.png" },
@@ -24,7 +16,6 @@ const clients = [
 
         <div class="carousel-wrapper">
             <div class="carousel-track">
-                {/* Render double the items to create seamless loop illusion */}
                 {
                     clients.map((client) => (
                         <div class="client-logo">
@@ -101,7 +92,7 @@ const clients = [
         display: flex;
         gap: 4rem;
         width: max-content;
-        animation: scroll 10s linear infinite;
+        animation: scroll 17s linear infinite;
         align-items: center;
     }
 
@@ -110,15 +101,14 @@ const clients = [
         display: flex;
         align-items: center;
         justify-content: center;
-        opacity: 0.5;
+        opacity: 0.8;
         transition: opacity 0.3s ease;
-        cursor: default;
+        cursor: pointer;
         height: 150px;
     }
 
     .client-logo:hover {
         opacity: 1;
-        cursor: pointer;
     }
 
     .logo-img {
@@ -126,12 +116,11 @@ const clients = [
         width: auto;
         max-width: 300px;
         object-fit: contain;
-        filter: grayscale(100%) brightness(200%);
-        transition: filter 0.3s ease;
+        transition: transform 0.3s ease;
     }
 
     .client-logo:hover .logo-img {
-        filter: none;
+        transform: scale(1.05);
     }
 
     .logo-text {
@@ -151,7 +140,6 @@ const clients = [
         }
     }
 
-    /* Pause on hover if desired */
     .carousel-wrapper:hover .carousel-track {
         animation-play-state: paused;
     }

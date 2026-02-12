@@ -1,11 +1,16 @@
 ---
 title: "Retail y Malls"
-description: "Prevención de pérdidas y seguridad para clientes. Monitoreo activo de pasillos, control de bodegas y personal especializado en atención al público."
+description: "Soluciones especializadas en seguridad para retail y centros comerciales, orientadas a la prevención de pérdidas, control operativo y protección de clientes, personal e instalaciones."
 icon: "retail"
 features:
   - "Guardias de Seguridad (OS10)"
-  - "CCTV con reconocimiento facial"
-  - "Control de acceso a proveedores"
+  - "Sistema de CCTV"
+  - "Sistema de intrusión"
+  - "Detección de incendios"
+  - "Control de acceso"
+  - "Inteligencia EAS"
+  - "Cableado Estructurado"
+  - "Equipamiento de cableado"
 ctaText: "Solicitar Evaluación"
 ctaLink: "/#contacto"
 isFeatured: false

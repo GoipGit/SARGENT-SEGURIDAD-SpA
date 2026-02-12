@@ -4,4 +4,3 @@ description: "Auditoría de redes y protección de infraestructura digital contr
 icon: "cyber"
 draft: true
 ---
-Evaluación de vulnerabilidades y hardening de sistemas.

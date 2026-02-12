@@ -6,12 +6,17 @@ const currentYear = new Date().getFullYear();
     <div class="container">
         <div class="row">
             <div class="col brand-col">
-                <a href="#" class="brand">
-                    Security<span class="text-gradient">Central</span>
+                <a href="/" class="brand" aria-label="Inicio">
+                    <img
+                        src="/images/logo-sarg-se.png"
+                        alt="Sargent Seguridad SpA"
+                        class="logo"
+                    />
+                    <div class="brand-text">
+                        <span class="text-primary">Sargent</span>
+                        <span class="text-secondary">Seguridad SpA</span>
+                    </div>
                 </a>
-                <p class="tagline">
-                    Protección inteligente para un mundo complejo.
-                </p>
             </div>
 
             <div class="col">
@@ -37,20 +42,11 @@ const currentYear = new Date().getFullYear();
                     <li><a href="#">Términos de Servicio</a></li>
                 </ul>
             </div>
-
-            <div class="col social-col">
-                <h3>Síguenos</h3>
-                <div class="social-links">
-                    <a href="#" aria-label="LinkedIn">LN</a>
-                    <a href="#" aria-label="Twitter">TW</a>
-                    <a href="#" aria-label="Instagram">IG</a>
-                </div>
-            </div>
         </div>
 
         <div class="bottom-bar">
             <p>
-                &copy; {currentYear} SecurityCentral. Todos los derechos reservados.
+                &copy; {currentYear} Sargent Seguridad SpA. Todos los derechos reservados.
             </p>
         </div>
     </div>
@@ -58,9 +54,7 @@ const currentYear = new Date().getFullYear();
 
 <style>
     .footer {
-        background: var(
-            --color-bg
-        ); /* Or Surface 1 if prefer slightly lighter */
+        background: var(--color-bg);
         border-top: 1px solid var(--color-border);
         padding: 5rem 0 2rem;
         font-size: 0.9rem;
@@ -85,7 +79,44 @@ const currentYear = new Date().getFullYear();
         color: var(--color-text);
         text-decoration: none;
         margin-bottom: 1rem;
-        display: inline-block;
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding-left: 140px;
+        min-height: 40px;
+    }
+
+    .logo {
+        height: 80px;
+        width: auto;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+        z-index: 10;
+    }
+
+    .brand-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+        gap: 2px;
+    }
+
+    .text-primary {
+        color: #ffffff;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .text-secondary {
+        color: var(--color-primary);
+        font-size: 0.9rem;
+        font-weight: 400;
+        letter-spacing: 2px;
+        text-transform: uppercase;
     }
 
     .tagline {

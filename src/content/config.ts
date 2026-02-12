@@ -1,17 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 
-const products = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    image: z.string().optional(),
-    category: z.enum(['Cámaras', 'Alarmas', 'Control de Acceso', 'Sensores']),
-    features: z.array(z.string()).optional(),
-    inStock: z.boolean().default(true),
-    isFeatured: z.boolean().default(false),
-  }),
-});
+
 
 const services = defineCollection({
   type: 'content',
@@ -20,6 +9,7 @@ const services = defineCollection({
     description: z.string(),
     icon: z.string(),
     draft: z.boolean().default(false).optional(),
+    order: z.number().default(100).optional(),
   }),
 });
 
@@ -37,7 +27,6 @@ const solutions = defineCollection({
 });
 
 export const collections = {
-  products,
   services,
   solutions,
 };

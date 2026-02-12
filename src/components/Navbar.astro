@@ -1,7 +1,15 @@
 <nav class="navbar">
 	<div class="container">
 		<a href="/" class="brand" aria-label="Inicio" data-astro-prefetch>
-			Security<span class="text-gradient">Central</span>
+			<img
+				src="/images/logo-sarg-se.png"
+				alt="Sargent Seguridad SpA"
+				class="logo"
+			/>
+			<div class="brand-text">
+				<span class="text-primary">Sargent</span>
+				<span class="text-secondary">Seguridad SpA</span>
+			</div>
 		</a>
 		<ul class="nav-links">
 			<li>
@@ -14,15 +22,6 @@
 			</li>
 			<li><a href="/#servicios" data-astro-prefetch>Servicios</a></li>
 			<li><a href="/#soluciones" data-astro-prefetch>Soluciones</a></li>
-			<li class="nav-separator"></li>
-			<li>
-				<a
-					href="/productos"
-					id="nav-products"
-					class="highlight-link"
-					data-astro-prefetch>Productos</a
-				>
-			</li>
 		</ul>
 		<a href="/#contacto" class="btn-primary" data-astro-prefetch
 			>Cotizar Ahora</a
@@ -60,29 +59,19 @@
 		if (brandLink) brandLink.addEventListener("click", scrollToTop);
 		if (homeLink) homeLink.addEventListener("click", scrollToTop);
 
-		// Active State Logic (ScrollSpy)
 		const updateActiveState = () => {
 			const currentPath = window.location.pathname;
 
-			// Remove active class from all
 			navLinks.forEach((link) => link.classList.remove("active"));
-
-			if (currentPath.startsWith("/productos")) {
-				const productsLink = document.getElementById("nav-products");
-				if (productsLink) productsLink.classList.add("active");
-				return;
-			}
 
 			if (currentPath === "/") {
 				const sections = ["inicio", "servicios", "soluciones"];
 				let currentSection = "";
 
-				// Determine which section is currently in view
 				for (const section of sections) {
 					const element = document.getElementById(section);
 					if (element) {
 						const rect = element.getBoundingClientRect();
-						// Check if section is active (simple heuristic)
 						if (rect.top <= 150 && rect.bottom >= 150) {
 							currentSection = section;
 							break;
@@ -90,7 +79,6 @@
 					}
 				}
 
-				// Fallback to home if near top
 				if (!currentSection && window.scrollY < 100) {
 					currentSection = "inicio";
 				}
@@ -109,7 +97,6 @@
 			}
 		};
 
-		// Run on load and scroll
 		updateActiveState();
 		document.addEventListener("scroll", updateActiveState, {
 			passive: true,
@@ -123,8 +110,8 @@
 		top: 0;
 		left: 0;
 		width: 100%;
-		padding: 1.5rem 0;
-		background: rgba(18, 18, 18, 0.8); /* Surface 1 with opacity */
+		padding: 2rem 0;
+		background: rgba(18, 18, 18, 0.8);
 		backdrop-filter: blur(10px);
 		z-index: 1000;
 		border-bottom: 1px solid var(--color-border);
@@ -145,22 +132,63 @@
 		color: var(--color-text);
 		text-decoration: none;
 		letter-spacing: -0.5px;
+		display: flex;
+		align-items: center;
+		position: relative;
+		padding-left: 140px;
+		min-height: 40px;
+	}
+
+	.logo {
+		height: 80px;
+		width: auto;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+		filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+		z-index: 10;
+	}
+
+	.brand-text {
+		display: flex;
+		flex-direction: column;
+		line-height: 1.1;
+		gap: 2px;
+	}
+
+	.text-primary {
+		color: #ffffff;
+		font-size: 1.2rem;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+
+	.text-secondary {
+		color: var(--color-primary);
+		font-size: 0.9rem;
+		font-weight: 400;
+		letter-spacing: 2px;
+		text-transform: uppercase;
 	}
 
 	.nav-links {
 		display: flex;
+		flex: 1;
+		justify-content: center;
 		gap: 2rem;
 		list-style: none;
 		margin: 0;
 		padding: 0;
-		align-items: center; /* Ensure items align vertically */
+		align-items: center;
+		margin-right: 7rem;
 	}
 
 	.nav-separator {
 		width: 1px;
 		height: 24px;
 		background-color: var(--color-border);
-		margin: 0 0.5rem; /* Adjust spacing around separator */
+		margin: 0 0.5rem;
 		opacity: 0.5;
 	}
 
@@ -177,7 +205,6 @@
 		color: var(--color-primary);
 	}
 
-	/* Active indicator (underline glow) for standard links */
 	.nav-links a.active:not(.highlight-link)::after {
 		content: "";
 		position: absolute;
@@ -192,7 +219,6 @@
 		transition: transform 0.3s ease;
 	}
 
-	/* Hover indicator for standard links (optional, if you want it on hover too) */
 	.nav-links a:not(.highlight-link)::after {
 		content: "";
 		position: absolute;

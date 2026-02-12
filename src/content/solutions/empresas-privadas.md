@@ -5,7 +5,9 @@ icon: "corporate"
 features:
   - "Gestión de visitas y recepción"
   - "Monitoreo de alarmas 24/7"
-  - "Auditorías de riesgos"
+  - "Guardias de Seguridad (OS10)"
+  - "Sistema de intrusión"
+  - "Sistema de CCTV"
 ctaText: "Solicitar Evaluación"
 ctaLink: "/#contacto"
 isFeatured: false

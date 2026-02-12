@@ -5,14 +5,17 @@ import { BrushCleaning, ShieldCheck, Crown, Cctv, Shield } from "lucide-astro";
 const services = await getCollection("services", ({ data }) => {
     return !data.draft;
 });
+
+// Sort services by order
+services.sort((a, b) => (a.data.order || 100) - (b.data.order || 100));
 type Service = CollectionEntry<"services">;
 
 const iconMap: Record<string, any> = {
+    cctv: Cctv,
+    guard: Shield,
     cleaning: BrushCleaning,
     cyber: ShieldCheck,
     vip: Crown,
-    cctv: Cctv,
-    guard: Shield,
 };
 ---
 
@@ -55,7 +58,6 @@ const iconMap: Record<string, any> = {
         position: relative;
     }
 
-    /* Center-out Separator */
     .services::before {
         content: "";
         position: absolute;
@@ -129,6 +131,7 @@ const iconMap: Record<string, any> = {
         background: var(--color-surface-2);
         border-color: var(--color-primary-light);
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        cursor: pointer;
     }
 
     .icon-wrapper {
